@@ -64,7 +64,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             cargoStatus.innerHTML = "Cargo mass low enough for launch";
             fuelStatus.innerHTML = "Fuel level high enough for launch";
             console.log(fuelLevel);
-            //console.log('is "10" a number?', validateInput("10"));
+            //console.log('is "10" a number?', validateInput("10")); - was failing this test, had an extra ' in front of something
         }
     }
 
@@ -74,9 +74,10 @@ async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        console.log("response", response);
         return response.json();
         });
-
+    console.log("planets returned", planetsReturned);
     return planetsReturned;
 }
 
